@@ -78,16 +78,24 @@ class SubsController < ApplicationController
   before_action :find_sub, only: [:show, :update, :edit, :destroy]
   # before_action :find_sub, except: [:index, :new, :create]
 
+  #get
   def index
     @subs = Sub.all
+    # renders index.html
   end
 
+  #get
   def show
     # @sub = Sub.find(params[:id])
+    # renders show.html.erb
   end
-
+  
+  #get
   def new
     @sub = Sub.new
+    # renders new.html.erb
+
+    render partial: 'subs/form'
   end
 
   def create
@@ -101,8 +109,11 @@ class SubsController < ApplicationController
     end
   end
 
+  #get
   def edit
     # @sub = Sub.find(params[:id])
+    # renders edit.html.erb unless to render something else like the below line
+    render partial: 'subs/form'
   end
 
   def update
